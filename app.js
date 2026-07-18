@@ -41,8 +41,11 @@ function initMap() {
 
   DATA.gares.forEach(gare => {
     const m = L.marker([gare.lat, gare.lng], { icon: makeGareIcon(), zIndexOffset: 1000 });
-    m.bindTooltip(gare.name, { permanent: false, direction: 'right', offset: [12, 0], className: 'gare-tooltip' });
+    m.bindTooltip(gare.name, { permanent: false, direction: 'right', offset: [12, 0], className: 'gare-tooltip', interactive: true });
     m.on('click', () => showGare(gare));
+    m.on('tooltipopen', e => {
+      e.tooltip.getElement().addEventListener('click', () => showGare(gare));
+    });
     m.addTo(map);
     gareMarkers.push(m);
   });
