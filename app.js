@@ -1,13 +1,3 @@
-const map = L.map('map', { zoomControl: true }).setView([48.85, 2.35], 9);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap contributors',
-  maxZoom: 18
-}).addTo(map);
-
-let markers = [];
-let currentGare = null;
-
 const gareList = document.getElementById('gare-list');
 const garePicker = document.getElementById('gare-picker');
 const controls = document.getElementById('controls');
@@ -18,9 +8,9 @@ const timeFilter = document.getElementById('time-filter');
 const legend = document.getElementById('legend');
 const stationCount = document.getElementById('station-count');
 
-function komootUrl(lat, lng) {
-  return `https://www.komoot.com/discover/tours/@${lat.toFixed(4)},${lng.toFixed(4)},12z?sport=racebike`;
-}
+let map = null;
+let markers = [];
+let currentGare = null;
 
 function needsDarkText(hex) {
   const r = parseInt(hex.slice(1, 3), 16);
@@ -29,19 +19,25 @@ function needsDarkText(hex) {
   return (r * 299 + g * 587 + b * 114) / 1000 > 155;
 }
 
+function komootUrl(lat, lng) {
+  return `https://www.komoot.com/discover/tours/@${lat.toFixed(4)},${lng.toFixed(4)},12z?sport=racebike`;
+}
+
+function initMap() {
+  if (map || typeof L === 'undefined') return;
+  map = L.map('map', { zoomControl: true }).setView([48.85, 2.35], 9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 18
+  }).addTo(map);
+}
+
 function makeIcon(color) {
-  const textColor = needsDarkText(color) ? '#222' : '#fff';
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 20 28">
     <circle cx="10" cy="10" r="9" fill="${color}" stroke="white" stroke-width="2"/>
     <line x1="10" y1="19" x2="10" y2="27" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>
   </svg>`;
-  return L.divIcon({
-    html: svg,
-    iconSize: [20, 28],
-    iconAnchor: [10, 27],
-    popupAnchor: [0, -28],
-    className: ''
-  });
+  return L.divIcon({ html: svg, iconSize: [20, 28], iconAnchor: [10, 27], popupAnchor: [0, -28], className: '' });
 }
 
 function matchTime(t) {
@@ -54,12 +50,12 @@ function matchTime(t) {
 }
 
 function clearMarkers() {
-  markers.forEach(m => map.removeLayer(m));
+  markers.forEach(m => map && map.removeLayer(m));
   markers = [];
 }
 
 function renderMarkers() {
-  if (!currentGare) return;
+  if (!currentGare || !map) return;
   clearMarkers();
   const sl = lineFilter.value;
   let count = 0;
@@ -69,13 +65,12 @@ function renderMarkers() {
     line.stations.forEach(s => {
       if (!matchTime(s.travelTime)) return;
       const marker = L.marker([s.lat, s.lng], { icon: makeIcon(line.color) });
-      const popup = `
+      marker.bindPopup(`
         <div class="popup-name">${s.name}</div>
         <div class="popup-meta">🕐 ~${s.travelTime} min &nbsp;·&nbsp; Zone ${s.zone} &nbsp;·&nbsp; ${line.name}</div>
         <div class="popup-landscape">${s.landscape}</div><br>
         <a class="popup-komoot" href="${komootUrl(s.lat, s.lng)}" target="_blank" rel="noopener">Voir sur Komoot →</a>
-      `;
-      marker.bindPopup(popup, { maxWidth: 260 });
+      `, { maxWidth: 260 });
       marker.addTo(map);
       markers.push(marker);
       count++;
@@ -85,9 +80,15 @@ function renderMarkers() {
   stationCount.textContent = `${count} station${count > 1 ? 's' : ''} affichée${count > 1 ? 's' : ''}`;
 
   if (markers.length > 0) {
-    const group = L.featureGroup(markers);
-    map.fitBounds(group.getBounds().pad(0.2));
+    map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2));
   }
+}
+
+function updateLegend() {
+  const sl = lineFilter.value;
+  legend.querySelectorAll('.legend-item').forEach((item, i) => {
+    item.classList.toggle('faded', sl !== 'all' && currentGare.lines[i].id !== sl);
+  });
 }
 
 function showGare(gare) {
@@ -108,7 +109,7 @@ function showGare(gare) {
   });
 
   legend.innerHTML = '';
-  gare.lines.forEach(l => {
+  gare.lines.forEach((l, i) => {
     const item = document.createElement('div');
     item.className = 'legend-item';
     item.innerHTML = `<span class="legend-dot" style="background:${l.color}"></span><span>${l.name} <span style="color:var(--text-muted)">(${l.stations.length})</span></span>`;
@@ -120,14 +121,8 @@ function showGare(gare) {
     legend.appendChild(item);
   });
 
+  initMap();
   renderMarkers();
-}
-
-function updateLegend() {
-  const sl = lineFilter.value;
-  legend.querySelectorAll('.legend-item').forEach((item, i) => {
-    item.classList.toggle('faded', sl !== 'all' && currentGare.lines[i].id !== sl);
-  });
 }
 
 backBtn.addEventListener('click', () => {
@@ -135,13 +130,14 @@ backBtn.addEventListener('click', () => {
   clearMarkers();
   controls.classList.add('hidden');
   garePicker.style.display = '';
-  map.setView([48.85, 2.35], 9);
+  if (map) map.setView([48.85, 2.35], 9);
   document.querySelectorAll('.gare-btn').forEach(b => b.classList.remove('active'));
 });
 
 timeFilter.addEventListener('change', renderMarkers);
 lineFilter.addEventListener('change', () => { renderMarkers(); updateLegend(); });
 
+// Populate gare buttons immediately — no dependency on Leaflet
 DATA.gares.forEach(gare => {
   const btn = document.createElement('button');
   btn.className = 'gare-btn';

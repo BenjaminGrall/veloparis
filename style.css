@@ -8,6 +8,7 @@
   --text-muted: #999;
   --border: #ddd;
   --accent: #2d6a4f;
+  --accent-soft: #d8f0e2;
   --shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
@@ -20,17 +21,18 @@
     --text-muted: #666;
     --border: #3a3a3a;
     --accent: #52b788;
+    --accent-soft: #1a3d2a;
     --shadow: 0 2px 12px rgba(0,0,0,0.4);
   }
 }
 
 :root[data-theme="dark"] {
   --bg: #1a1a1a; --surface: #252525; --text: #e8e8e8; --text-dim: #aaa;
-  --text-muted: #666; --border: #3a3a3a; --accent: #52b788; --shadow: 0 2px 12px rgba(0,0,0,0.4);
+  --text-muted: #666; --border: #3a3a3a; --accent: #52b788; --accent-soft: #1a3d2a; --shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
 :root[data-theme="light"] {
   --bg: #f5f5f0; --surface: #ffffff; --text: #1a1a1a; --text-dim: #555;
-  --text-muted: #999; --border: #ddd; --accent: #2d6a4f; --shadow: 0 2px 12px rgba(0,0,0,0.1);
+  --text-muted: #999; --border: #ddd; --accent: #2d6a4f; --accent-soft: #d8f0e2; --shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
 body {
@@ -101,7 +103,7 @@ body {
 }
 
 .gare-btn:hover { border-color: var(--accent); }
-.gare-btn.active { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+.gare-btn.active { border-color: var(--accent); background: var(--accent-soft); }
 
 .gare-btn .name { font-size: 0.9rem; font-weight: 600; }
 
@@ -234,7 +236,7 @@ body {
 
 .popup-landscape {
   display: inline-block;
-  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  background: var(--accent-soft);
   color: var(--accent);
   padding: 0.1rem 0.45rem;
   border-radius: 20px;
