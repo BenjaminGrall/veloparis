@@ -129,7 +129,6 @@ function showGare(gare) {
   });
 
   initMap();
-  gareMarkers.forEach(m => map && map.removeLayer(m));
   renderMarkers();
 }
 
@@ -138,10 +137,7 @@ backBtn.addEventListener('click', () => {
   clearMarkers();
   controls.classList.add('hidden');
   garePicker.style.display = '';
-  if (map) {
-    map.setView([48.85, 2.35], 10);
-    gareMarkers.forEach(m => m.addTo(map));
-  }
+  if (map) map.setView([48.85, 2.35], 10);
   document.querySelectorAll('.gare-btn').forEach(b => b.classList.remove('active'));
 });
 
