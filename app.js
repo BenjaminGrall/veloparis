@@ -9,6 +9,7 @@ const stationCount = document.getElementById('station-count');
 
 let map = null;
 let markers = [];
+let gareMarkers = [];
 let currentGare = null;
 
 function needsDarkText(hex) {
@@ -22,13 +23,29 @@ function komootUrl(lat, lng) {
   return `https://www.komoot.com/fr-fr/discover/tours/@${lat.toFixed(7)},${lng.toFixed(7)}/tours?sport=racebike&map=true&max_distance=5000&min_length=55000&max_length=90000&max_uphill=500&pageNumber=1`;
 }
 
+function makeGareIcon() {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="14" fill="#1a1a1a" stroke="white" stroke-width="2.5"/>
+    <text x="16" y="21" font-size="14" text-anchor="middle" fill="white">🚉</text>
+  </svg>`;
+  return L.divIcon({ html: svg, iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -18], className: '' });
+}
+
 function initMap() {
   if (map || typeof L === 'undefined') return;
-  map = L.map('map', { zoomControl: true }).setView([48.85, 2.35], 9);
+  map = L.map('map', { zoomControl: true }).setView([48.85, 2.35], 10);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors',
     maxZoom: 18
   }).addTo(map);
+
+  DATA.gares.forEach(gare => {
+    const m = L.marker([gare.lat, gare.lng], { icon: makeGareIcon(), zIndexOffset: 1000 });
+    m.bindTooltip(gare.name, { permanent: true, direction: 'right', offset: [12, 0], className: 'gare-tooltip' });
+    m.on('click', () => showGare(gare));
+    m.addTo(map);
+    gareMarkers.push(m);
+  });
 }
 
 function makeIcon(color) {
@@ -112,6 +129,7 @@ function showGare(gare) {
   });
 
   initMap();
+  gareMarkers.forEach(m => map && map.removeLayer(m));
   renderMarkers();
 }
 
@@ -120,7 +138,10 @@ backBtn.addEventListener('click', () => {
   clearMarkers();
   controls.classList.add('hidden');
   garePicker.style.display = '';
-  if (map) map.setView([48.85, 2.35], 9);
+  if (map) {
+    map.setView([48.85, 2.35], 10);
+    gareMarkers.forEach(m => m.addTo(map));
+  }
   document.querySelectorAll('.gare-btn').forEach(b => b.classList.remove('active'));
 });
 
