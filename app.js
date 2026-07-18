@@ -147,6 +147,13 @@ backBtn.addEventListener('click', () => {
 
 lineFilter.addEventListener('change', () => { renderMarkers(); updateLegend(); });
 
+// Init map immediately so it loads with gare markers visible
+if (typeof L !== 'undefined') {
+  initMap();
+} else {
+  document.querySelector('script[src*="leaflet"]').addEventListener('load', initMap);
+}
+
 // Populate gare buttons immediately — no dependency on Leaflet
 DATA.gares.forEach(gare => {
   const btn = document.createElement('button');
