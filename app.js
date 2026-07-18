@@ -19,7 +19,7 @@ function needsDarkText(hex) {
 }
 
 function komootUrl(lat, lng) {
-  return `https://www.komoot.com/discover/tours/@${lat.toFixed(4)},${lng.toFixed(4)},12z?sport=racebike`;
+  return `https://www.komoot.com/fr-fr/discover/tours/@${lat.toFixed(7)},${lng.toFixed(7)}/tours?sport=racebike&map=true&max_distance=5000&min_length=55000&max_length=90000&max_uphill=500&pageNumber=1`;
 }
 
 function initMap() {
