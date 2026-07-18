@@ -4,7 +4,6 @@ const controls = document.getElementById('controls');
 const backBtn = document.getElementById('back-btn');
 const gareNameEl = document.getElementById('gare-name');
 const lineFilter = document.getElementById('line-filter');
-const timeFilter = document.getElementById('time-filter');
 const legend = document.getElementById('legend');
 const stationCount = document.getElementById('station-count');
 
@@ -20,7 +19,7 @@ function needsDarkText(hex) {
 }
 
 function komootUrl(lat, lng) {
-  return `https://www.komoot.com/discover/tours/@${lat.toFixed(4)},${lng.toFixed(4)},12z?sport=racebike`;
+  return `https://www.komoot.com/fr-fr/discover/tours/@${lat.toFixed(7)},${lng.toFixed(7)}/tours?sport=racebike&map=true&max_distance=5000&min_length=55000&max_length=90000&max_uphill=500&pageNumber=1`;
 }
 
 function initMap() {
@@ -40,15 +39,6 @@ function makeIcon(color) {
   return L.divIcon({ html: svg, iconSize: [20, 28], iconAnchor: [10, 27], popupAnchor: [0, -28], className: '' });
 }
 
-function matchTime(t) {
-  const v = timeFilter.value;
-  if (v === 'all') return true;
-  if (v === '20-30') return t >= 20 && t < 30;
-  if (v === '30-40') return t >= 30 && t < 40;
-  if (v === '40-50') return t >= 40 && t < 50;
-  return t >= 50;
-}
-
 function clearMarkers() {
   markers.forEach(m => map && map.removeLayer(m));
   markers = [];
@@ -63,11 +53,11 @@ function renderMarkers() {
   currentGare.lines.forEach(line => {
     if (sl !== 'all' && line.id !== sl) return;
     line.stations.forEach(s => {
-      if (!matchTime(s.travelTime)) return;
       const marker = L.marker([s.lat, s.lng], { icon: makeIcon(line.color) });
       marker.bindPopup(`
         <div class="popup-name">${s.name}</div>
-        <div class="popup-meta">🕐 ~${s.travelTime} min &nbsp;·&nbsp; Zone ${s.zone} &nbsp;·&nbsp; ${line.name}</div>
+        <div class="popup-time">🚆 ${s.travelTime} min depuis Paris</div>
+        <div class="popup-meta">${line.name} &nbsp;·&nbsp; Zone ${s.zone}</div>
         <div class="popup-landscape">${s.landscape}</div><br>
         <a class="popup-komoot" href="${komootUrl(s.lat, s.lng)}" target="_blank" rel="noopener">Voir sur Komoot →</a>
       `, { maxWidth: 260 });
@@ -134,7 +124,6 @@ backBtn.addEventListener('click', () => {
   document.querySelectorAll('.gare-btn').forEach(b => b.classList.remove('active'));
 });
 
-timeFilter.addEventListener('change', renderMarkers);
 lineFilter.addEventListener('change', () => { renderMarkers(); updateLegend(); });
 
 // Populate gare buttons immediately — no dependency on Leaflet

@@ -228,6 +228,13 @@ body {
   margin-bottom: 0.3rem;
 }
 
+.popup-time {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+
 .popup-meta {
   font-size: 0.8rem;
   color: var(--text-dim);
