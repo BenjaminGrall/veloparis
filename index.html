@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VéloParis — Trouve ton départ vélo en Île-de-France</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚲</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🚲 VéloParis</h1>
+    <p class="subtitle">Trouve ta prochaine sortie vélo depuis une gare parisienne</p>
+  </header>
+
+  <main>
+    <section class="gare-selector">
+      <h2>Choisis ta gare de départ</h2>
+      <div class="gare-grid" id="gare-grid"></div>
+    </section>
+
+    <section class="results hidden" id="results">
+      <div class="results-header">
+        <button class="back-btn" id="back-btn">← Retour</button>
+        <h2 id="results-title"></h2>
+      </div>
+
+      <div class="filters">
+        <label>
+          Temps de trajet :
+          <select id="time-filter">
+            <option value="all">Tous</option>
+            <option value="20-30">20–30 min</option>
+            <option value="30-40" selected>30–40 min</option>
+            <option value="40-50">40–50 min</option>
+            <option value="50+">50+ min</option>
+          </select>
+        </label>
+        <label>
+          Ligne :
+          <select id="line-filter">
+            <option value="all">Toutes</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="lines-container" id="lines-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Données Transilien/RER • Les temps de trajet sont approximatifs</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
