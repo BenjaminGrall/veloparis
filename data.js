@@ -1007,6 +1007,233 @@ const DATA = {
           ]
         }
       ]
+    },
+    {
+      "name": "Châtelet - Les Halles",
+      "id": "chatelet",
+      "lat": 48.8619,
+      "lng": 2.3469,
+      "lines": [
+        {
+          "id": "A",
+          "name": "RER A",
+          "color": "#E3051C",
+          "stations": [
+            {
+              "name": "Neuville-Université",
+              "lat": 49.0025,
+              "lng": 2.0791,
+              "travelTime": 35,
+              "landscape": "Vexin - Val d'Oise",
+              "zone": 5
+            },
+            {
+              "name": "Vauréal",
+              "lat": 49.0302,
+              "lng": 2.0345,
+              "travelTime": 38,
+              "landscape": "Vexin - Val d'Oise",
+              "zone": 5
+            },
+            {
+              "name": "Cergy-le-Haut",
+              "lat": 49.0501,
+              "lng": 2.0105,
+              "travelTime": 42,
+              "landscape": "Vexin - Val d'Oise",
+              "zone": 5
+            },
+            {
+              "name": "Osny",
+              "lat": 49.0679,
+              "lng": 2.0626,
+              "travelTime": 40,
+              "landscape": "Vexin - Val d'Oise",
+              "zone": 5
+            },
+            {
+              "name": "Bussy-Saint-Georges",
+              "lat": 48.837,
+              "lng": 2.7098,
+              "travelTime": 35,
+              "landscape": "Campagne de Brie",
+              "zone": 5
+            },
+            {
+              "name": "Chessy - Marne-la-Vallée",
+              "lat": 48.8685,
+              "lng": 2.7797,
+              "travelTime": 40,
+              "landscape": "Campagne de Brie",
+              "zone": 5
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "name": "RER B",
+          "color": "#5291CE",
+          "stations": [
+            {
+              "name": "Saint-Rémy-lès-Chevreuse",
+              "lat": 48.7024,
+              "lng": 2.0714,
+              "travelTime": 42,
+              "landscape": "Haute Vallée de Chevreuse",
+              "zone": 5
+            },
+            {
+              "name": "Gif-sur-Yvette",
+              "lat": 48.7016,
+              "lng": 2.1348,
+              "travelTime": 37,
+              "landscape": "Vallée de Chevreuse",
+              "zone": 5
+            },
+            {
+              "name": "Orry-la-Ville - Coye",
+              "lat": 49.1382,
+              "lng": 2.5031,
+              "travelTime": 38,
+              "landscape": "Forêt de Chantilly",
+              "zone": 5
+            },
+            {
+              "name": "Luzarches",
+              "lat": 49.1171,
+              "lng": 2.4232,
+              "travelTime": 42,
+              "landscape": "Forêt de Chantilly",
+              "zone": 5
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "name": "RER D",
+          "color": "#00814F",
+          "stations": [
+            {
+              "name": "Combs-la-Ville - Quincy",
+              "lat": 48.671,
+              "lng": 2.5611,
+              "travelTime": 30,
+              "landscape": "Bords de Seine",
+              "zone": 4
+            },
+            {
+              "name": "Melun",
+              "lat": 48.527,
+              "lng": 2.6564,
+              "travelTime": 38,
+              "landscape": "Vallée de la Seine",
+              "zone": 5
+            },
+            {
+              "name": "Orry-la-Ville - Coye",
+              "lat": 49.1382,
+              "lng": 2.5031,
+              "travelTime": 33,
+              "landscape": "Forêt de Chantilly",
+              "zone": 5
+            },
+            {
+              "name": "Survilliers - Fosses",
+              "lat": 49.1019,
+              "lng": 2.5498,
+              "travelTime": 30,
+              "landscape": "Plaine de France",
+              "zone": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La Défense",
+      "id": "la-defense",
+      "lat": 48.8916,
+      "lng": 2.2385,
+      "lines": [
+        {
+          "id": "A",
+          "name": "RER A",
+          "color": "#E3051C",
+          "stations": [
+            {
+              "name": "Neuville-Université",
+              "lat": 49.0025,
+              "lng": 2.0791,
+              "travelTime": 25,
+              "landscape": "Vexin - Val d'Oise",
+              "zone": 5
+            },
+            {
+              "name": "Vauréal",
+              "lat": 49.0302,
+              "lng": 2.0345,
+              "travelTime": 28,
+              "landscape": "Vexin - Val d'Oise",
+              "zone": 5
+            },
+            {
+              "name": "Cergy-le-Haut",
+              "lat": 49.0501,
+              "lng": 2.0105,
+              "travelTime": 32,
+              "landscape": "Vexin - Val d'Oise",
+              "zone": 5
+            },
+            {
+              "name": "Poissy",
+              "lat": 48.9323,
+              "lng": 2.0413,
+              "travelTime": 22,
+              "landscape": "Bords de Seine",
+              "zone": 5
+            },
+            {
+              "name": "Saint-Germain-en-Laye",
+              "lat": 48.8983,
+              "lng": 2.0935,
+              "travelTime": 18,
+              "landscape": "Forêt de Saint-Germain",
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "name": "RER E",
+          "color": "#C04191",
+          "stations": [
+            {
+              "name": "Villiers-sur-Marne - Le Plessis-Trévise",
+              "lat": 48.827,
+              "lng": 2.5558,
+              "travelTime": 30,
+              "landscape": "Bords de Marne",
+              "zone": 4
+            },
+            {
+              "name": "Noisiel",
+              "lat": 48.8493,
+              "lng": 2.6262,
+              "travelTime": 35,
+              "landscape": "Bords de Marne",
+              "zone": 4
+            },
+            {
+              "name": "Lagny - Thorigny",
+              "lat": 48.8777,
+              "lng": 2.7052,
+              "travelTime": 42,
+              "landscape": "Bords de Marne",
+              "zone": 5
+            }
+          ]
+        }
+      ]
     }
   ]
 };
