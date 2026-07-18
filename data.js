@@ -56,7 +56,23 @@ const DATA = {
               "lat": 48.8092,
               "lng": 2.1345,
               "travelTime": 30,
-              "landscape": "Parc du Château de Versailles",
+              "landscape": "Parc du Château",
+              "zone": 4
+            },
+            {
+              "name": "Orgeval",
+              "lat": 48.9497,
+              "lng": 1.9596,
+              "travelTime": 40,
+              "landscape": "Vallée de la Seine",
+              "zone": 5
+            },
+            {
+              "name": "Marly-le-Roi",
+              "lat": 48.8671,
+              "lng": 2.082,
+              "travelTime": 28,
+              "landscape": "Forêt de Marly",
               "zone": 4
             }
           ]
@@ -121,6 +137,30 @@ const DATA = {
               "travelTime": 25,
               "landscape": "Bords de Seine",
               "zone": 4
+            },
+            {
+              "name": "Épône - Mézières",
+              "lat": 48.9607,
+              "lng": 1.8072,
+              "travelTime": 45,
+              "landscape": "Plaine de la Seine",
+              "zone": 5
+            },
+            {
+              "name": "Freneuse",
+              "lat": 49.0079,
+              "lng": 1.7408,
+              "travelTime": 48,
+              "landscape": "Boucles de la Seine",
+              "zone": 5
+            },
+            {
+              "name": "Breuil-Bois-Robert",
+              "lat": 48.9779,
+              "lng": 1.7217,
+              "travelTime": 50,
+              "landscape": "Vallée de la Vaucouleurs",
+              "zone": 5
             }
           ]
         },
@@ -142,8 +182,16 @@ const DATA = {
               "lat": 48.9323,
               "lng": 2.0413,
               "travelTime": 30,
-              "landscape": "Forêt de Saint-Germain",
+              "landscape": "Bords de Seine",
               "zone": 5
+            },
+            {
+              "name": "Achères-Ville",
+              "lat": 48.955,
+              "lng": 2.0735,
+              "travelTime": 27,
+              "landscape": "Forêt de Saint-Germain",
+              "zone": 4
             }
           ]
         }
@@ -185,22 +233,6 @@ const DATA = {
               "zone": 5
             },
             {
-              "name": "Sèvres - Rive Gauche",
-              "lat": 48.8234,
-              "lng": 2.2095,
-              "travelTime": 25,
-              "landscape": "Forêt de Meudon",
-              "zone": 3
-            },
-            {
-              "name": "Chaville - Rive Gauche",
-              "lat": 48.8104,
-              "lng": 2.1876,
-              "travelTime": 25,
-              "landscape": "Forêt de Fausses-Reposes",
-              "zone": 3
-            },
-            {
               "name": "Plaisir - Grignon",
               "lat": 48.8139,
               "lng": 1.9467,
@@ -223,6 +255,30 @@ const DATA = {
               "travelTime": 50,
               "landscape": "Forêt de Rambouillet",
               "zone": 5
+            },
+            {
+              "name": "Gazeran",
+              "lat": 48.6309,
+              "lng": 1.8577,
+              "travelTime": 47,
+              "landscape": "Forêt de Rambouillet",
+              "zone": 5
+            },
+            {
+              "name": "Saint-Arnoult-en-Yvelines",
+              "lat": 48.5653,
+              "lng": 1.9384,
+              "travelTime": 50,
+              "landscape": "Campagne yvelinoise",
+              "zone": 5
+            },
+            {
+              "name": "La Queue-les-Yvelines",
+              "lat": 48.7856,
+              "lng": 1.8528,
+              "travelTime": 48,
+              "landscape": "Vallée de la Mauldre",
+              "zone": 5
             }
           ]
         },
@@ -236,7 +292,7 @@ const DATA = {
               "lat": 48.799,
               "lng": 2.1288,
               "travelTime": 30,
-              "landscape": "Parc du Château de Versailles",
+              "landscape": "Parc du Château",
               "zone": 4
             },
             {
@@ -259,8 +315,24 @@ const DATA = {
               "name": "Saint-Martin d'Étampes",
               "lat": 48.4343,
               "lng": 2.1625,
-              "travelTime": 50,
+              "travelTime": 55,
               "landscape": "Beauce et vallée de la Juine",
+              "zone": 5
+            },
+            {
+              "name": "Jouy-en-Josas",
+              "lat": 48.7665,
+              "lng": 2.1688,
+              "travelTime": 25,
+              "landscape": "Vallée de la Bièvre",
+              "zone": 4
+            },
+            {
+              "name": "Gif-sur-Yvette",
+              "lat": 48.7016,
+              "lng": 2.1348,
+              "travelTime": 35,
+              "landscape": "Vallée de Chevreuse",
               "zone": 5
             }
           ]
@@ -333,6 +405,38 @@ const DATA = {
               "travelTime": 40,
               "landscape": "Vallée de l'Oise",
               "zone": 5
+            },
+            {
+              "name": "Montsoult - Maffliers",
+              "lat": 49.0687,
+              "lng": 2.3514,
+              "travelTime": 30,
+              "landscape": "Forêt de Carnelle",
+              "zone": 5
+            },
+            {
+              "name": "Domont",
+              "lat": 49.0354,
+              "lng": 2.331,
+              "travelTime": 28,
+              "landscape": "Plaine de France",
+              "zone": 4
+            },
+            {
+              "name": "Taverny",
+              "lat": 49.0264,
+              "lng": 2.2296,
+              "travelTime": 30,
+              "landscape": "Forêt de Montmorency",
+              "zone": 4
+            },
+            {
+              "name": "Saint-Leu-la-Forêt",
+              "lat": 49.0187,
+              "lng": 2.2485,
+              "travelTime": 28,
+              "landscape": "Forêt de Montmorency",
+              "zone": 4
             }
           ]
         },
@@ -356,6 +460,14 @@ const DATA = {
               "travelTime": 50,
               "landscape": "Forêt de Retz",
               "zone": 5
+            },
+            {
+              "name": "Nanteuil-le-Haudouin",
+              "lat": 49.1397,
+              "lng": 2.8069,
+              "travelTime": 45,
+              "landscape": "Campagne de Valois",
+              "zone": 5
             }
           ]
         },
@@ -370,6 +482,22 @@ const DATA = {
               "lng": 2.5031,
               "travelTime": 30,
               "landscape": "Forêt de Chantilly",
+              "zone": 5
+            },
+            {
+              "name": "Survilliers - Fosses",
+              "lat": 49.1019,
+              "lng": 2.5498,
+              "travelTime": 28,
+              "landscape": "Plaine de France",
+              "zone": 5
+            },
+            {
+              "name": "Louvres",
+              "lat": 49.0453,
+              "lng": 2.5097,
+              "travelTime": 25,
+              "landscape": "Campagne de France",
               "zone": 5
             }
           ]
@@ -401,6 +529,14 @@ const DATA = {
               "lng": 2.0963,
               "travelTime": 42,
               "landscape": "Vallée de Chevreuse",
+              "zone": 5
+            },
+            {
+              "name": "Aéroport CDG 2 - Parc des Expositions",
+              "lat": 49.0033,
+              "lng": 2.573,
+              "travelTime": 35,
+              "landscape": "Campagne de Goële",
               "zone": 5
             }
           ]
@@ -497,6 +633,69 @@ const DATA = {
               "travelTime": 50,
               "landscape": "Forêt de Crécy",
               "zone": 5
+            },
+            {
+              "name": "Gretz-Armainvilliers",
+              "lat": 48.7373,
+              "lng": 2.7327,
+              "travelTime": 38,
+              "landscape": "Forêt d'Armainvilliers",
+              "zone": 5
+            },
+            {
+              "name": "Fontenay-Trésigny",
+              "lat": 48.7065,
+              "lng": 2.878,
+              "travelTime": 48,
+              "landscape": "Campagne briarde",
+              "zone": 5
+            },
+            {
+              "name": "Nangis",
+              "lat": 48.5558,
+              "lng": 3.0141,
+              "travelTime": 55,
+              "landscape": "Campagne de Brie",
+              "zone": 5
+            },
+            {
+              "name": "Verberie",
+              "lat": 49.3063,
+              "lng": 2.832,
+              "travelTime": 55,
+              "landscape": "Vallée de l'Oise",
+              "zone": 5
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "name": "RER E",
+          "color": "#C04191",
+          "stations": [
+            {
+              "name": "Villiers-sur-Marne - Le Plessis-Trévise",
+              "lat": 48.827,
+              "lng": 2.5558,
+              "travelTime": 25,
+              "landscape": "Bords de Marne",
+              "zone": 4
+            },
+            {
+              "name": "Noisiel",
+              "lat": 48.8493,
+              "lng": 2.6262,
+              "travelTime": 30,
+              "landscape": "Bords de Marne",
+              "zone": 4
+            },
+            {
+              "name": "Lagny - Thorigny",
+              "lat": 48.8777,
+              "lng": 2.7052,
+              "travelTime": 38,
+              "landscape": "Bords de Marne",
+              "zone": 5
             }
           ]
         }
@@ -573,8 +772,24 @@ const DATA = {
               "name": "Nemours - Saint-Pierre",
               "lat": 48.2653,
               "lng": 2.6917,
-              "travelTime": 50,
+              "travelTime": 55,
               "landscape": "Vallée du Loing",
+              "zone": 5
+            },
+            {
+              "name": "Héricy",
+              "lat": 48.4471,
+              "lng": 2.7398,
+              "travelTime": 43,
+              "landscape": "Forêt de Fontainebleau",
+              "zone": 5
+            },
+            {
+              "name": "Boigneville",
+              "lat": 48.2864,
+              "lng": 2.4165,
+              "travelTime": 55,
+              "landscape": "Gâtinais",
               "zone": 5
             }
           ]
@@ -584,6 +799,30 @@ const DATA = {
           "name": "RER D",
           "color": "#00814F",
           "stations": [
+            {
+              "name": "Combs-la-Ville - Quincy",
+              "lat": 48.671,
+              "lng": 2.5611,
+              "travelTime": 28,
+              "landscape": "Bords de Seine",
+              "zone": 4
+            },
+            {
+              "name": "Lieusaint - Moissy",
+              "lat": 48.6291,
+              "lng": 2.555,
+              "travelTime": 35,
+              "landscape": "Forêt de Sénart",
+              "zone": 5
+            },
+            {
+              "name": "Savigny-le-Temple",
+              "lat": 48.5902,
+              "lng": 2.5802,
+              "travelTime": 40,
+              "landscape": "Forêt de Sénart",
+              "zone": 5
+            },
             {
               "name": "Melun",
               "lat": 48.527,
@@ -596,7 +835,7 @@ const DATA = {
               "name": "Cesson",
               "lat": 48.5634,
               "lng": 2.6004,
-              "travelTime": 30,
+              "travelTime": 32,
               "landscape": "Forêt de Sénart",
               "zone": 5
             },
@@ -604,8 +843,24 @@ const DATA = {
               "name": "Boissise-le-Roi",
               "lat": 48.5303,
               "lng": 2.566,
-              "travelTime": 35,
+              "travelTime": 37,
               "landscape": "Bords de Seine",
+              "zone": 5
+            },
+            {
+              "name": "Moissy-Cramayel",
+              "lat": 48.6175,
+              "lng": 2.5994,
+              "travelTime": 38,
+              "landscape": "Forêt de Sénart",
+              "zone": 5
+            },
+            {
+              "name": "Vosves",
+              "lat": 48.5508,
+              "lng": 2.6236,
+              "travelTime": 42,
+              "landscape": "Campagne de Brie",
               "zone": 5
             }
           ]
@@ -620,6 +875,14 @@ const DATA = {
               "lat": 48.837,
               "lng": 2.7098,
               "travelTime": 35,
+              "landscape": "Campagne de Brie",
+              "zone": 5
+            },
+            {
+              "name": "Chessy - Marne-la-Vallée",
+              "lat": 48.8685,
+              "lng": 2.7797,
+              "travelTime": 40,
               "landscape": "Campagne de Brie",
               "zone": 5
             }
@@ -677,6 +940,30 @@ const DATA = {
               "travelTime": 30,
               "landscape": "Plaine de l'Orge",
               "zone": 4
+            },
+            {
+              "name": "La Norville - Saint-Germain-lès-Arpajon",
+              "lat": 48.5637,
+              "lng": 2.2584,
+              "travelTime": 38,
+              "landscape": "Vallée de l'Orge",
+              "zone": 5
+            },
+            {
+              "name": "Saint-Chéron",
+              "lat": 48.5423,
+              "lng": 2.1168,
+              "travelTime": 42,
+              "landscape": "Campagne yvelinoise",
+              "zone": 5
+            },
+            {
+              "name": "Sermaise",
+              "lat": 48.5014,
+              "lng": 2.0771,
+              "travelTime": 48,
+              "landscape": "Forêt de Dourdan",
+              "zone": 5
             }
           ]
         },
@@ -699,6 +986,22 @@ const DATA = {
               "lng": 2.1871,
               "travelTime": 38,
               "landscape": "Vallée de Chevreuse",
+              "zone": 5
+            },
+            {
+              "name": "Bures-sur-Yvette",
+              "lat": 48.7031,
+              "lng": 2.1619,
+              "travelTime": 40,
+              "landscape": "Vallée de Chevreuse",
+              "zone": 5
+            },
+            {
+              "name": "La Hacquinière",
+              "lat": 48.6888,
+              "lng": 2.1435,
+              "travelTime": 42,
+              "landscape": "Haute Vallée de Chevreuse",
               "zone": 5
             }
           ]
