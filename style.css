@@ -213,6 +213,7 @@ body {
 
 /* Gare tooltip */
 .gare-tooltip {
+  cursor: pointer;
   background: #1a1a1a;
   color: #fff;
   border: none;
